@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: mart_stream_summary
+    description: One row per stream with reaction volume and its highest-scoring minute.
+    columns:
+      - name: stream_id
+        data_tests: [unique, not_null]
+      - name: channel_id
+        data_tests: [not_null]
+      - name: chat_event_count
+        data_tests: [not_null]
+      - name: peak_minute
+        data_tests: [not_null]
+
+  - name: mart_clip_candidates
+    description: Ranked clip candidates with human-review status and quality outcome.
+    columns:
+      - name: candidate_id
+        data_tests: [unique, not_null]
+      - name: stream_id
+        data_tests: [not_null]
+      - name: quality_status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [valid]
+      - name: priority_rank
+        data_tests: [not_null]

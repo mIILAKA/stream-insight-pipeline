@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_chat_by_minute
+    description: Minute-level reaction aggregates used to find peak moments.
+    columns:
+      - name: stream_id
+        data_tests: [not_null]
+      - name: minute_bucket
+        data_tests: [not_null]
+
+  - name: int_candidate_scores
+    description: Clip candidates enriched with reaction events inside each interval.
+    columns:
+      - name: candidate_id
+        data_tests: [unique, not_null]
+      - name: stream_id
+        data_tests: [not_null]

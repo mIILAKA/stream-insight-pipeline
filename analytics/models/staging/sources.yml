@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Deterministic synthetic inputs loaded by the Python ingestion stage.
+    schema: main
+    tables:
+      - name: raw_channels
+      - name: raw_streams
+      - name: raw_chat_events
+      - name: raw_clip_candidates

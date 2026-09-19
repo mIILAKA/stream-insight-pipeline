@@ -1,0 +1,8 @@
+stream_insight:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('STREAM_INSIGHT_DB_PATH', 'build/stream_insight.duckdb') }}"
+      schema: analytics
+      threads: 4
